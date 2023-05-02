@@ -1,8 +1,8 @@
 @{
     ViewData["Title"] = "User Page";
 }
-@model string
+@model User
 <div class="text-center">
     <h1 class="display-4">Here is a User</h1>
-    <h1 class="display-4">@Model</h1>
+    <h1 class="display-4">@Model.FirstName @Model.LastName</h1>
 </div>

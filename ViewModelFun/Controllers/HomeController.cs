@@ -27,10 +27,22 @@ public class HomeController : Controller
     public IActionResult Numbers()=>View("Numbers", Enumerable.Range(1,7).Select(i=>new Random().Next(1, 31)).ToArray());
 
     [HttpGet("/user")]
-    public IActionResult User()=>View("User", "ZoDSeR SyLVaN");
+    public IActionResult UserPage(){
+        User user = new User("ZoDSeR", "SyLVaN");
+        return View("User", user);
+    }
 
     [HttpGet("/users")]
-    public IActionResult Users()=>View("Users", new string[]{"Neil Gaiman", "Terry Pratchet", "Jane Austen", "Stephen King", "Marry Shelley"});
+    public IActionResult Users(){
+        User[] users = new User[]{
+            new User("Neil", "Gaiman"),
+            new User("Terry","Pratchet"),
+            new User("Jane", "Austen"),
+            new User("Stephen","King"),
+            new User("Mary","Shelley")
+        };
+        return View("Users", users); 
+    }
 
     public IActionResult Privacy()=> View();
 
