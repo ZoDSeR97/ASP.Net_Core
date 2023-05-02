@@ -1,34 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<form class="container border p-5 mt-5 overflow-auto" action="process" method="post">
+@model Survey
+<form class="container border p-5 mt-5 overflow-auto" asp-action="process" method="post">
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingPassword" placeholder="" name="name">
-        <label for="floatingName">Name</label>
+        <input type="text" class="form-control" id="floatingPassword" placeholder="" asp-for="name">
+        <label asp-for="name">Name</label>
+        <span asp-validation-for="name" class="text-danger"></span>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="location">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="location">
             <option selected value="SanJose">San Jose</option>
             <option value="SanFrans">San Franscisco</option>
             <option value="NewYork">New York</option>
             <option value="BackAlley">Back Alley</option>
         </select>
-        <label for="floatingSelect">Dojo Location</label>
+        <label asp-for="location">Dojo Location</label>
+        <span asp-validation-for="location" class="text-danger"></span>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="favLang">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="favLang">
             <option selected value="C#">C#</option>
             <option value="Python">Python</option>
             <option value="JavaScript">JavaScript</option>
             <option value="PHP">PHP</option>
         </select>
-        <label for="floatingSelect">Dojo Location</label>
+        <label asp-for="favLang">Dojo Location</label>
+        <span asp-validation-for="favLang" class="text-danger"></span>
     </div>
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px" name="comment">
+        <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 100px" asp-for="comment">
         </textarea>
-        <label for="floatingTextarea2">Comments</label>
+        <label asp-for="comment">Comments</label>
+        <span asp-validation-for="comment" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary float-end shadow">Submit</button>
 </form>

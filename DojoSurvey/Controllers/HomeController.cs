@@ -19,7 +19,7 @@ public class HomeController : Controller
     public IActionResult Result(Survey data) => View(data);
 
     [HttpPost("process")]
-    public IActionResult Process(Survey data)=> RedirectToAction("Result", data);
+    public IActionResult Process(Survey data)=> ModelState.IsValid?RedirectToAction("Result", data):View("Index", data);
     
 
     public IActionResult Privacy()
