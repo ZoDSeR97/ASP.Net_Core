@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Date
+<form class="container border p-5 mt-5 overflow-auto" asp-action="process" method="post">
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" id="floatingPassword" placeholder="" asp-for="D">
+        <label asp-for="D">Pick a Date</label>
+        <span asp-validation-for="D" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary float-end shadow">Submit</button>
+</form>
