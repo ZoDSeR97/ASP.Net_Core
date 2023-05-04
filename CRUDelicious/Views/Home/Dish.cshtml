@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Dish Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Dish.Name</h1>
+    <p><a href="/">Home</a> | <a href="/dishes/new">Add a Dish</a></p>
+</div>
+<h2>@ViewBag.Dish.Name by @ViewBag.Dish.Chef</h2>
+--------------------------------------
+<h3>@ViewBag.Dish.Description</h3>
+<h3>Calories: @ViewBag.Dish.Calories</h3>
+<h3>Tastiness: @ViewBag.Dish.Tastiness</h3>
+<form asp-action="RemoveDish" method="post" asp-route-id="@ViewBag.Dish.DishId" class="d-flex justify-content-around">
+    <button type="submit" class="btn bg-danger text-white shadow">Delete</button>
+    <a href=@($"/dishes/{ViewBag.Dish.DishId}/edit") class="btn bg-primary text-white shadow">Edit</a>
+</form>
