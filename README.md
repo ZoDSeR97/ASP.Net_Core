@@ -24,7 +24,7 @@ Using Full MVC project template
 ```bash
 $ dotnet new mvc --no-https -o ProjectName
 ```
-After create our mvc project, we add 2 packages of Entity Framework
+After created our mvc project, we add 2 packages of Entity Frameworks
 ```bash
 $ dotnet add package Pomelo.EntityFrameworkCore.MySql
 $ dotnet add package Microsoft.EntityFrameworkCore.Design

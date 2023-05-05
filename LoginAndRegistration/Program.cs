@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CRUDelicious.Models;
+using LoginAndRegistration.Models;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
