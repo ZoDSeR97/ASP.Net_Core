@@ -4,7 +4,7 @@ public class LoginUser
 {
     // No other fields!
     [Required]    
-    public string? Email { get; set; } 
+    public string? LoginEmail { get; set; } 
     [Required]    
-    public string? Password { get; set; } 
+    public string? LoginPassword { get; set; } 
 }

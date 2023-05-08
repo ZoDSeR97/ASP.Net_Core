@@ -9,8 +9,7 @@ public class UniqueEmailAttribute : ValidationAttribute
     	// Though we have Required as a validation, sometimes we make it here anyways
     	// In which case we must first verify the value is not null before we proceed
         if(value == null)
-    	    // If it was, return the required error
-            return new ValidationResult("Email is required!");
+            return new ValidationResult("Email is required!");// If it was, return the required error
         
     	// This will connect us to our database since we are not in our Controller
         MyContext _context = (MyContext)validationContext.GetService(typeof(MyContext));

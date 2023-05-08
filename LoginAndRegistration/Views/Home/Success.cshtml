@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Success Page";
+}
+@model User;
+<div class="row">
+    <h1 class="col">Welcome @Model.FirstName @Model.LastName</h1>
+    <a href="/logout" class="col btn bg-danger text-white">Logout</a>
+</div>
+
+<h2>Success!</h2>
