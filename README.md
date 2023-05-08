@@ -8,7 +8,7 @@ $ dotnet --version
 $ dotnet tool install --global dotnet-ef # This install entity framework globally
 ```
 ## :checkered_flag: How to run ##
-Goto appsetting.json add connection to your MySQL DB
+Go to appsetting.json edit connection to your MySQL DB
 ```json
 {  
     "Logging": {    
