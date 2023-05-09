@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"]="Product";
+}
+@model Association
+<div class="row">
+    <a href="/" class="col">Products</a>
+    <a href="/categories" class="col">Categories</a>
+</div>
+<h1>@ViewBag.Product.Name</h1>
+<div class="row">
+    <div class="col">
+        <h2>Categories</h2>
+        @foreach (Association item in ViewBag.Product.RelatedCategories){
+            <p>@item.RelatedCategory?.Name</p>
+        }
+    </div>
+    <div class="col">
+        <h2>Add Category</h2>
+        <form asp-action="AddCategoryToProduct" asp-route-id="@ViewBag.Product.ProductId" method="post">
+            <input type="hidden" asp-for="ProductId" value="@ViewBag.Product.ProductId">
+            <select asp-for="CategoryId">
+                @foreach (Category c in ViewBag.Categories){
+                    <option value="@c.CategoryId">@c.Name</option>
+                }
+            </select>
+            <button type="submit" class="btn bg-primary">Add Category</button>
+        </form>
+    </div>
+</div>
