@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using WeddingPlanner.Models;
 using Microsoft.AspNetCore.Identity;
 
+namespace WeddingPlanner.Controllers;
 public class WeddingController:Controller{
     private readonly ILogger<WeddingController> _logger;
     MyContext _context;

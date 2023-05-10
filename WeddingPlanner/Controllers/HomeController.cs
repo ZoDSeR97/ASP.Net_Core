@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using WeddingPlanner.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace LoginAndRegistration.Controllers;
+namespace WeddingPlanner.Controllers;
 
 public class HomeController : Controller
 {
