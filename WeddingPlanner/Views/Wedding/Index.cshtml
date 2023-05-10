@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "List of Weddings";
+}
+@model List<Wedding>
+<div class="row">
+    <h1 class="col">Welcome, @ViewBag.User.FirstName @ViewBag.User.LastName</h1>
+    <div class="col row">
+        <p class="col">Home</p>
+        <a class="col" href="/Weddings/new">Add a Wedding</a>
+        <a class="col" href="/Weddings/logout">Logout</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Wedding of</td>
+            <td>Date</td>
+            <td>Guest Count</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Wedding wed in @Model){
+            <tr>
+                <td><a href="/weddings/@wed.WeddingId">@wed.WedderOne & @wed.WedderTwo</a></td>
+                <td>@wed.Date</td>
+                <td>@wed.Guests.Count</td>
+                @if (wed.UserId == Context.Session.GetInt32("UserId"))
+                {
+                    <td>
+                        <form asp-action="RemoveWedding" asp-route-id="@wed.WeddingId" method="post">
+                            <button type="submit" class="btn bg-danger">Delete</button>
+                        </form>
+                    </td>
+                }else if (wed.Guests.Any(g=>g.UserId==Context.Session.GetInt32("UserId"))){
+                    <td><a href="/Weddings/@wed.WeddingId/RemoveRSVP" class="btn bg-danger text-white">Un-RSVP</a></td>
+                }else{
+                    <td><a href="/Weddings/@wed.WeddingId/RSVP" class="btn bg-primary text-white">RSVP</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

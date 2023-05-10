@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"]="New Wedding!!!";
+}
+@model Wedding
+<div class="row">
+    <h1 class="col">Welcome, @ViewBag.User.FirstName @ViewBag.User.LastName</h1>
+    <div class="col row">
+        <a class="col" href="/Weddings">Home</a>
+        <p class="col">Add a Wedding</p>
+        <a class="col" href="/Weddings/logout">Logout</a>
+    </div>
+</div>
+<form asp-action="AddWedding" asp-controller="Wedding" method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="WedderOne" placeholder="name@example.com">
+        <label asp-for="WedderOne"></label>
+        <span asp-validation-for="WedderOne" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="WedderTwo" placeholder="name@example.com">
+        <label asp-for="WedderTwo"></label>
+        <span asp-validation-for="WedderTwo" class="text-danger"></span>
+    </div>
+    <div class="mb-3 form-floating">
+        <input type="date" class="form-control" asp-for="Date" placeholder="Password">
+        <label asp-for="Date"></label>
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Address" placeholder="name@example.com">
+        <label asp-for="Address"></label>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn bg-primary text-white">Add Wedding</button>
+</form>
